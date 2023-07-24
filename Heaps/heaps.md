@@ -13,4 +13,62 @@
 * max-heaps: Array[parent[i]] >= Array[i].
     * Meaning, the value of a node is at most the value of its parent, thus, the node with the largest value is stored at the root.
 
+
+## Min-heap
+
 * min-heaps: Array[parent[i]] <= Array[i]
+
+### Build in functions 
+
+#### Create a min-heap from a list
+
+* heapq.heapify
+
+Python provides a built-in module heapq for creating min-heap from a list in less time complexity. The function heapq.heapify(list) transforms a regular list to a heap, in-place, in linear time.
+
+heapq module doesn't has a function that will convert a list into a max-heap.
+
+```py
+import heapq
+
+nums = [4, 10, 3, 5, 1]
+
+heapq.heapify(nums)
+
+print(nums) # prints [1, 4, 3, 5, 10]
+```
+
+### remove the smallest value then re-organize the heap.
+
+* heapq.heappop(heap)
+
+```py
+import heapq
+
+nums = [4, 10, 3, 5, 1]
+
+heapq.heapify(nums)
+
+print(nums) # prints [1, 4, 3, 5, 10]
+
+# Pop and return smallest element from heap
+print(heapq.heappop(heap))  # Output: 1
+
+# Heap after popping
+print("Heap after popping: ", heap)  # Output: [3, 4, 10, 5]
+```
+
+### push a value onto the heap, while maintaining the heap invariant
+```py
+import heapq
+
+# Initialize an empty heap
+heap = []
+heapq.heappush(heap, 2)
+heapq.heappush(heap, 3)
+heapq.heappush(heap, 1)
+
+# The heap will be a list where the smallest element is at the front
+print(heap)  # Output: [1, 3, 2]
+```
+
