@@ -7,6 +7,7 @@ def permutations(items):
   res = []
   
   for sub in without:
+    # this is key logic in creating a permutation, using the length of each subset to insert value of first in different idx of the new permutation sub list.
     for idx in range(len(sub) + 1):
       res.append([*sub[:idx], first, *sub[idx:]])
   return res
