@@ -24,6 +24,8 @@
 def create_combinations(items, k):
   if k == 0:
     return [[]]
+  # it's important to return an empty list instead of 2Dlist when k > len(items)
+  # because [["c"]] + [] = [["c"]], whereas, [["c"]] + [[]] = [["c"], []]
   if k > len(items):
     return []
   
