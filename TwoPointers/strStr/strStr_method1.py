@@ -1,10 +1,3 @@
-# Problem: for a given source string and a target string, you should output the first index(from 0) of target string in the source string.If the target does not exist in source, just return -1.
-
-# Note: Do I need to implement KMP Algorithm in a real interview?
-
-# Not necessary. When you meet this problem in a real interview, the interviewer may just want to test your basic implementation ability. But make sure you confirm how to implement with the interviewer first.
-
-
 class Solution:
     """
     @param source: 
@@ -26,7 +19,7 @@ class Solution:
         # else set pointer2 to 0. 
         # when pointer1 == len(source), return -1   
 
-        if not target:
+        if not target or not source: # not source added latter
             return 0
         
         pointer1, pointer2 = 0, 0
@@ -59,3 +52,4 @@ class Solution:
             return_index = -1
         
         return return_index
+
