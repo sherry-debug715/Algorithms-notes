@@ -52,10 +52,10 @@ heapq.heapify(nums)
 print(nums) # prints [1, 4, 3, 5, 10]
 
 # Pop and return smallest element from heap
-print(heapq.heappop(heap))  # Output: 1
+print(heapq.heappop(nums))  # Output: 1
 
 # Heap after popping
-print("Heap after popping: ", heap)  # Output: [3, 4, 10, 5]
+print("Heap after popping: ", nums)  # Output: [3, 4, 10, 5]
 ```
 
 ### push a value onto the heap, while maintaining the heap invariant
