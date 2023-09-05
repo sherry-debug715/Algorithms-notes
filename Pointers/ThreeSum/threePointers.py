@@ -43,6 +43,9 @@ class Solution:
         for left in range(len(numbers) - 2):
             if numbers[left] > 0:
                 break
+            # it's important to make sure, the first element from the numbers array is not excluded, therefore, 
+            # we only want to increment left pointer after we checked numbers[0], and numbers[1], even though, 
+            # numbers[0] == numbers[1]
             if left > 0 and numbers[left] == numbers[left - 1]:
                 continue
 
