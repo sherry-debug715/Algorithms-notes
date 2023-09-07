@@ -8,6 +8,7 @@ class Solution:
     @return: A list of permutations.
              we will sort your return value in output
     """
+    # Time: O(N! * N) -> O(number of permutation * time spent to form each permutation)
     def permute(self, nums: List[int]) -> List[List[int]]:
         # write your code here
         if not nums:
@@ -32,3 +33,5 @@ class Solution:
             self.dfs(nums, visited, res, permutate)
             permutate.pop()
             visited.remove(num) 
+
+
