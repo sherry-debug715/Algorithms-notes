@@ -18,6 +18,8 @@ class Solution:
     @return: A list of lists of integers
              we will sort your return value in output
     """
+    # Time: O(n**target/min), where n is the length of candidates, min is the number with minimal value from candidates list.
+    # Space: O(n**target/min)
     def combination_sum(self, candidates: List[int], target: int) -> List[List[int]]:
         # 1. convert candidates list into a set then sort it to remove duplicate 
         # 2. Initialize a list, results, to keep track of all matching subs.
