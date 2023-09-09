@@ -112,11 +112,12 @@ class Solution:
     def siftdown(self, i, A):
         while i * 2 + 1 < len(A):
             child = i * 2 + 1 # index of current left child
-            if i * 2 + 1 < len(A) and A[child] > A[k * 2 + 2]:
+            if i * 2 + 2 < len(A) and A[child] > A[k * 2 + 2]:
                 child = k * 2 + 2 # if right child is greater than the left child, choose the right child index 
                 if A[child] >= A[i]:
                     break 
 
             A[child], A[i] = A[i], A[child]. 
+            i = child
 ```
 
