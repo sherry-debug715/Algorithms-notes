@@ -5,6 +5,8 @@ Given an integer array, find a subarray where the sum of numbers is zero. Your c
 Input:  [-3, 1, 2, -3, 4]
 Output: [0, 2] or [1, 3].
 Explanation: return anyone that the sum is 0.
+
+Lintcode problem 138: https://www.lintcode.com/problem/138/?fromId=161&_from=collection
 """
 
 from typing import (
