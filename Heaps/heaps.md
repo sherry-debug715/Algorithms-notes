@@ -72,3 +72,51 @@ heapq.heappush(heap, 1)
 print(heap)  # Output: [1, 3, 2]
 ```
 
+### Siftup
+Given an integer array A, convert A into a minHeap.
+
+```py
+# Time: O(nlogn)
+# 1. n: iterate over the integer array.
+# 2. logn: for every element, it at most need to swap logn times.
+
+class Solution:
+    # @param A: An integer array
+    # @return: void
+    def siftup(self, A, k):
+        while k != 0:
+            parent = (k - 1) // 2
+            if A[k] > A[parent]:
+                break
+            A[k], A[parent] = A[parent], A[k]
+            k = parent
+            
+    def heapify(self, A):
+        for i in range(len(A)):
+            self.siftup(A, i)
+```
+
+### Siftdown
+Using the same problem from above: given an integer array A, convert A into a minHeap. Using siftdown to reduce the time complexity down to O(n).
+
+```py
+class Solution:
+    # @param A: Given an integer array
+    # @return: void
+
+    # Instead of looking for the parent of every element from list A, start from a parent of the leaf children.    
+    def heapify(self, A):
+        for i in range((len(A) - 1) // 2, -1, -1):
+            self.siftdown(i, A)
+
+    def siftdown(self, i, A):
+        while i * 2 + 1 < len(A):
+            child = i * 2 + 1 # index of current left child
+            if i * 2 + 1 < len(A) and A[child] > A[k * 2 + 2]:
+                child = k * 2 + 2 # if right child is greater than the left child, choose the right child index 
+                if A[child] >= A[i]:
+                    break 
+
+            A[child], A[i] = A[i], A[child]. 
+```
+
