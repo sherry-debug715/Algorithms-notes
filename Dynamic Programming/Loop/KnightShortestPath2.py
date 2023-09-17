@@ -60,6 +60,8 @@ class Solution:
             return -1 
         
         return path_tracker[row - 1][col - 1]
+    
+    
 
 
 
