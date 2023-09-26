@@ -4,6 +4,7 @@ Design and implement a TwoSum class. It should support the following operations:
 
 add - Add the number to an internal data structure.
 find - Find if there exists any pair of numbers which sum is equal to the value.
+Lintcode problem 607: https://www.lintcode.com/problem/607/?fromId=161&_from=collection
 """
 
 class TwoSum:
