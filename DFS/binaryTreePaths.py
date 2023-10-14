@@ -44,7 +44,7 @@ class Solution:
         #     None  5 None None
         #          /\
         #      None None
-        # when root == node 2, None is appended to single_path list, [1, 2, None], then we hit line 33 and return, if we don't pop None out of the single_path list, we will end us with "1->2->None->5"
+        # when root == node 2, None is appended to single_path list, [1, 2, None], then we hit line 33 and return, if we don't pop None out of the single_path list, we will end with "1->2->None->5"
         single_path.pop() 
 
         single_path.append(root.right) 
