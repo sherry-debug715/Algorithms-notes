@@ -19,9 +19,10 @@ class Solution:
     Initialize a number, col
     Initialize a list of tuples, pos, to document all positions that could lead to current pos.
     Initialize a grid, path_tracker, it should has the same row and col, with each pos filled with 
-        float("inf") 
-    populate path_tracker[0][0] with 0
+        float("inf"), since we are looking for minimal path
+    populate path_tracker[0][0] with 0, as the starting point
 
+# since the horse travel from left to right, the iteration should be from column to column, left to right 
     For range of col, with c:
         For range of row, with r:
             if grid[c][r] is 0:
