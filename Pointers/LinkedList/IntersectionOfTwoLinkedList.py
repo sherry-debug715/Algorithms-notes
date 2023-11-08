@@ -43,26 +43,25 @@ class Solution:
         if not headA or not headB:
             return None 
         
-        cur = headA
-        while cur.next:
-            cur = cur.next 
-        cur.next = headB 
+        # find the tail of linked list A
+        pointerA = headA
+        while pointerA.next:
+            pointerA = pointerA.next 
+        
+        # connect tail of linked list A with head of linked list B
+        pointerA.next = headB 
 
-        slow = headA 
-        fast = headA
-
-        while fast.next:
+        # look for entrance of the formed linked list circle 
+        slow, fast = headA, headA.next 
+        while fast and fast.next and id(slow) != id(fast):
+            if fast is None or fast.next is None:
+                return None 
             slow = slow.next
             fast = fast.next.next 
-            if slow == fast:
-                break 
         
-        if fast.next is None:
-            return None 
+        new = headA
+        while slow.next != new:
+            slow = slow.next
+            new = new.next 
         
-        head = headA
-        while head != slow:
-            head = head.next 
-            slow = slow.next 
-        
-        return slow 
+        return new 
