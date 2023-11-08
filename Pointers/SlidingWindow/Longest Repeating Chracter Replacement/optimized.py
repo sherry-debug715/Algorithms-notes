@@ -38,7 +38,7 @@ class Solution:
         for i in range(len(s)):
             window_size = i - left + 1
             cur_window[s[i]] = cur_window.get(s[i], 0) + 1 
-            maxFreq = max(cur_window.values())
+            maxFreq = max(cur_window[s[i]], maxFreq )
             
             if window_size - maxFreq > k: 
                 cur_window[s[left]] -= 1 
