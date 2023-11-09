@@ -28,6 +28,8 @@ class Solution:
 
     return output
     """
+    # Time O(m + n) where m is the length of row, n is the length of col
+    # Space O(1)
     def search_matrix(self, matrix: List[List[int]], target: int) -> int:
         if not matrix:
             return 0 
