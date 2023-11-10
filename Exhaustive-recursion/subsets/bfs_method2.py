@@ -20,5 +20,7 @@ class Solution:
                 subset = list(queue[i]) 
                 subset.append(n) 
                 queue.append(subset) 
+        # for n in nums:
+        #     queue += [subset + [n] for subset in queue]
         
         return queue
