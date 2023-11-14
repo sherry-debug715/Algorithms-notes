@@ -40,6 +40,8 @@ class Solution:
         return diff - dp[n][target]
     
 # the optimized solution by using a single list 
+# Time: O(n * target)
+# Space: O(target)
 class Solution:
     """
     @param nums: the given array
