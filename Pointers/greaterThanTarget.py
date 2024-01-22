@@ -20,6 +20,9 @@ class Solution:
         counter = 0 
         start, end = 0, len(nums) - 1
         while start < end:
+            # If the sum of the elements at nums[start] and nums[end] is greater than the target, 
+            # it means that all elements from nums[start] to nums[end-1] (inclusive) paired with nums[end] 
+            # will also be greater than target.
             if nums[start] + nums[end] > target:
                 counter += (end - start)
                 end -= 1
