@@ -14,18 +14,32 @@ class Solution:
     def two_sum_closest(self, nums: List[int], target: int) -> int:
         if not nums:
             return 
-        
-        nums.sort() # O(NlogN) 
-        l, r = 0, len(nums) - 1 
+        n = len(nums)
+
+        nums.sort() 
+        # check if nums array only contain one unique number
+        if nums[0] == nums[-1]:
+            return abs(target - nums[0])
+
+        l, r = 0, n - 1 
         min_diff = float("inf") 
 
-        while l < r: # O(N)
+        while l < r:
             two_sum = nums[l] + nums[r] 
+            # pruning 
+            if two_sum == target:
+                return 0
             if abs(target - two_sum) < min_diff:
                 min_diff = abs(target - two_sum)
             if two_sum < target:
                 l += 1
+                # handling duplicates
+                while l < r and nums[l] == nums[l - 1]:
+                    l += 1
             else:
                 r -= 1 
+                # handling duplicates
+                while l < r and nums[r] == nums[r + 1]:
+                    r -= 1
         
         return min_diff
