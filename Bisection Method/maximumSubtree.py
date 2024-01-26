@@ -12,7 +12,8 @@ class TreeNode:
         self.val = val
         self.left, self.right = None, None
 """
-
+# Time: O(N) Both the average and worst time is O(n) as the algorithmn visits each node exactly once,
+# Space: O(H), where H is the height of the tree. For an unbalanced tree, the space complexity is O(N), however, for an balanced tree, the height of the tree would be logN, resulting in an O(logN) complexity.
 class Solution:
     """
     @param root: the root of binary tree
