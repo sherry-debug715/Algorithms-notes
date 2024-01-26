@@ -4,7 +4,8 @@ Lintcode problem 75: https://www.lintcode.com/problem/75/?fromId=161&_from=colle
 from typing import (
     List,
 )
-
+# Time: O(logN) for both average and worst cases
+# Space: O(1)
 class Solution:
     """
     @param a: An integers array.
