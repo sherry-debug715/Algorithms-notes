@@ -23,6 +23,8 @@ class Solution:
     compare their value while counting down k
     3. The final list returned contains numbers from the A list instead of the indexes.  
     """
+    # Average and Worst Time: O(K + log(N))
+    # Space: O(1)
     def k_closest_numbers(self, a: List[int], target: int, k: int) -> List[int]:
         if not a:
             return []
