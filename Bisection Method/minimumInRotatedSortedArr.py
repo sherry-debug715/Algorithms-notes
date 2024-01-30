@@ -5,7 +5,8 @@ Lintcode problem 159: https://www.lintcode.com/problem/159/?fromId=161&_from=col
 from typing import (
     List,
 )
-
+# Time: O(logN)
+# Space: O(1)
 class Solution:
     """
     @param nums: a rotated sorted array
