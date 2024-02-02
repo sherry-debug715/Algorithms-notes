@@ -39,7 +39,40 @@ class Solution:
     
         
 
+from typing import (
+    List,
+)
 
+class Solution:
+    """
+    @param m: a matrix
+    @return: the total number of friend circles among all the students
+    """
+    def find_circle_num(self, m: List[List[int]]) -> int:
+        if not m:
+            return 0 
+
+        n = len(m)
+        visited = {key: False for key in range(n)}
+        output = 0
+
+        def dfs(row):
+            for neighbor in range(n):
+                if visited[neighbor]:
+                    continue 
+
+                if m[row][neighbor]:
+                    visited[neighbor] = True 
+                    dfs(neighbor)
+
+        for student in range(n):
+            if visited[student]:
+                continue 
+            
+            dfs(student)
+            output += 1 
+        
+        return output 
 
 
 
