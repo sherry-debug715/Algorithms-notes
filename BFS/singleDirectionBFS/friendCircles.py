@@ -21,6 +21,8 @@ class Solution:
         counter += 1 
     return counter
     """
+    # Time: O(N^2)
+    # Space: O(N)
     def find_circle_num(self, m: List[List[int]]) -> int:
         counter = 0
         visited = {}
@@ -44,4 +46,13 @@ class Solution:
                         queue.append(c)
         
         return counter 
-        
+[
+    [1,1,0],
+    [1,1,0],
+    [0,0,1]
+]
+
+ # {0: T, 1: T, 2: T}  
+output = 2
+queue = [2]
+     
