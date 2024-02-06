@@ -35,8 +35,8 @@
 #     self.left = None
 #     self.right = None
 
-# Time O(N)
-# Space O(N)
+# Average and Worst Time O(N). The problem require the entire tree to be traversed 
+# Space O(L * H), where L represents the number of leaf nodes, as it represents the number of unique path from root to each leaf; H represents the maximum length of any branch.
 def all_tree_paths(root):
   all_paths = []
   _all_tree_paths(root, [root], all_paths) 
@@ -50,8 +50,10 @@ def _all_tree_paths(root, cur_path, all_paths):
     all_paths.append([node.val for node in cur_path]) 
     return 
   
+  # store node instead of value. At leaf node, root.left is None.
   cur_path.append(root.left) 
   _all_tree_paths(root.left, cur_path, all_paths) 
+  # backtracking.
   cur_path.pop() 
   
   cur_path.append(root.right) 
