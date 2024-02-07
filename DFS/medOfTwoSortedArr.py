@@ -12,6 +12,8 @@ class Solution:
     @param b: An integer array
     @return: a double whose format is *.5 or *.0
     """
+    # Time(O(logmin(len(a), len(b))))
+    # Space: O(1)
     def find_median_sorted_arrays(self, a: List[int], b: List[int]) -> float:
         # arrayA and arrayB are already sorted 
         # return number
@@ -22,13 +24,13 @@ class Solution:
 
         if len(a) > len(b):
             shorter_list, longer_list = longer_list, shorter_list
-        
-        if not shorter_list:
-            L, R = 0, len(longer_list) - 1
-            mid = (L + R) // 2
-            if len(longer_list) % 2 == 0:
-                return ( longer_list[mid] + longer_list[mid + 1] ) / 2
-            return longer_list[mid]
+        # The folowing code is not necessary, if a list is empty, the shorter_pointer and shorter_right will be set to float("-inf") and float("inf") respectively, therefore, enter the return statement.   
+        # if not shorter_list:
+        #     L, R = 0, len(longer_list) - 1
+        #     mid = (L + R) // 2
+        #     if len(longer_list) % 2 == 0:
+        #         return ( longer_list[mid] + longer_list[mid + 1] ) / 2
+        #     return longer_list[mid]
         
         left, right = 0, len(shorter_list) - 1 
 
