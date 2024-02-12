@@ -8,6 +8,8 @@ class Solution:
     @return: A list of lists. All valid subsets.
              we will sort your return value in output
     """
+    # Time: O(N^2), worst case N is equal to the number of elements stored in the input lists, on average, when duplicates exists, the prunning reduces the size of N.
+    # Space: O(N) + O(N*2^N) for the recursion stack + output space
     def subsets_with_dup(self, nums: List[int]) -> List[List[int]]:
         # write your code here
         res = [] 
