@@ -27,6 +27,8 @@ class Solution:
             3. cur_comb.pop()
     4. return res
     """
+    # Time: worst case O(4^N), the worst case occurs when each letter from an input digits of length n is mapped to 4 letters.
+    # Space: O(N * 4^n), call stack space + 4^N combinations of length N digits input.
     def letter_combinations(self, digits: str) -> List[str]:
         if not digits:
             return []
