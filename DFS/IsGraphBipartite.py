@@ -47,3 +47,51 @@ class Solution:
             elif visited[n] != neighbor:
                 return False 
         return True
+
+# Method 2: highly inefficient
+    from typing import (
+    List,
+)
+
+class Node:
+    def __init__(self, val):
+        self.val = val
+        self.color = None
+        self.neighbors = []
+
+class Solution:
+    """
+    @param graph: the given undirected graph
+    @return:  return true if and only if it is bipartite
+    """
+
+    def is_bipartite(self, graph: List[List[int]]) -> bool:
+        def form_graph():
+            neighbors = {num: Node(num) for num in range(len(graph))}
+            
+            for r in range(len(graph)):
+                for n in graph[r]:
+                    cur_node = neighbors[r]
+                    neighbor = neighbors[n]
+                    if neighbor not in cur_node.neighbors:
+                        cur_node.neighbors.append(neighbor)
+                        neighbor.neighbors.append(cur_node)
+            return neighbors
+        
+        neighbors = form_graph() 
+
+        def dfs(node, color):
+            if node.color:
+                return node.color == color
+
+            node.color = color
+
+            return all(dfs(neighbor, 1 - color) for neighbor in node.neighbors)
+
+        for each_node in neighbors.values():
+            if each_node.color is None and not dfs(each_node, 0):
+                return False 
+        return True
+
+        
+    

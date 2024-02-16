@@ -50,6 +50,7 @@ class Solution:
             return 
         
         for i in range(start_index, len(candidates)):
+            # prunning 
             if candidates[i] > remain_target:
                 break 
             cur_list.append(candidates[i]) 
