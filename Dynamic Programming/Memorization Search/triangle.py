@@ -23,6 +23,16 @@ class Solution:
         right = recursion(row + 1, col + 1)
         memo[(row, col)] = min(left, right) + triangle[row][col]
         return memo[(row, col)]
+    [
+        [2],
+        [3,4],
+        [6,5,7],
+        [4,1,8,3]
+    ]
+    The following algorithmn is based on a bottom up approach. It first compare the vallue of 
+    adjacent numbers that the above number can move toward, choose the one with smaller value.
+    When reaching the bottom of the stack, x == 0 and y == 0, memo[(x, y)] should be referencing
+    the mininum path sum. 
     """
     # Time: O(n^2) 
     # Space: O(n^2), In the worst case, the result for each of the n * (n + 1) / 2 elements from the triangle tree will be stored in memo. Space complexity of the call stack is O(n) where n is the number of rows.
