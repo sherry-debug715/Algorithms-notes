@@ -1,20 +1,13 @@
-def get_prefix(words):
-    obj = {} 
-    for word in words:
-        for i in range(len(word)):
-            prefix = word[:i + 1]
-            if prefix not in obj:
-                obj[prefix] = False 
-            obj[word] = True 
-    return obj
+triangle = [
+[2],
+[3,4],
+[6,5,7],
+[4,1,8,3]
+]
+path_sum = triangle[-1][::]
+print("path sum", path_sum)
+# i == 0
+# j in range 1
 
-words = ["dog","dad","dgdg","can","again"]
-print(get_prefix(words))
-
-board = [
-    "doaf",
-    "agai",
-    "dcan"
-    ]
-                    
-        
+#             0, 1, 2, 3
+# path_sum = [11, 10, 10, 3]
