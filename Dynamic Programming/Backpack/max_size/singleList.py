@@ -27,7 +27,7 @@ class Solution:
         for i in range(len(A)):
             for j in range(m, -1, -1):
                 if j < A[i]:
-                    continue 
+                    break
                 dp[j] = dp[j] or dp[j - A[i]] 
         
         for n in range(m, -1, -1):
