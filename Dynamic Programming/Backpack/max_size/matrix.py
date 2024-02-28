@@ -25,6 +25,7 @@ class Solution:
     """
     # Time: N((n + 1) * (size + 1))
     # Spaze: N((n + 1) * (size + 1))
+    # dp[i][j]表示前i个数挑出若干个数组成j的最大和
     def back_pack(self, size: int, a: List[int]) -> int:
         if not a or size == 0:
             return 0 
