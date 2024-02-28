@@ -13,7 +13,7 @@ class Solution:
     """
     """
     Logic: keep track of the previous number, i.e. where are you coming from 
-
+    dp[i] 表示是否能跳到i, j代表上一步是从哪来的
     Edge case:
      1. if a list is empty, return False 
     
