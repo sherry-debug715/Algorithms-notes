@@ -54,6 +54,8 @@ class Solution:
     @param word_set: A dictionary of words dict
     @return: A boolean
     """
+    # Time: O(N^2)
+    # Space: O(N)
     def word_break(self, s: str, word_set: Set[str]) -> bool:
         if not s:
             return True 
@@ -71,6 +73,7 @@ class Solution:
             for j in range(1, max_length + 1): 
                 if i < j:
                     break 
+                # pruning: dp[i - j] represents whether the prefix of substring s[i - j: i] forms a word in wordDict. Skip if it doesn't.
                 if not dp[i - j]:
                     continue 
                 word = s[i-j:i]

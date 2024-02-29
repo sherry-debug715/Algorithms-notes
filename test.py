@@ -1,13 +1,26 @@
-triangle = [
-[2],
-[3,4],
-[6,5,7],
-[4,1,8,3]
-]
-path_sum = triangle[-1][::]
-print("path sum", path_sum)
-# i == 0
-# j in range 1
-
-#             0, 1, 2, 3
-# path_sum = [11, 10, 10, 3]
+# 93.44% time
+# 64.69% space
+class Solution:
+    def climbStairs(self, n: int) -> int:
+        if not n:
+            return 1 
+        
+        return self.dfs(n, 0, {}) 
+    
+    def dfs(self, n, cur_step, memo):
+        if cur_step > n:
+            return 0
+        # memo[cur_step] reference the number of ways to climb to cur_step
+        if cur_step in memo:
+            return memo[cur_step]
+        
+        if cur_step == n:
+            return 1 
+        
+        ways = 0
+        for step in range(1, 3):
+            ways += self.dfs(n, cur_step + step, memo) 
+        
+        memo[cur_step] = ways
+        
+        return ways
