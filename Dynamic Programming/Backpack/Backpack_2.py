@@ -43,6 +43,7 @@ class Solution:
     """
     # Time: O(n * m)
     # Space: O(n)
+    # dp[j] 表示a数组中前i个物品里挑出一些放到dp数组中j的背包大小中的最大价值和
     def back_pack_i_i(self, m: int, a: List[int], v: List[int]) -> int:
         if not a and not v:
             return 0 
