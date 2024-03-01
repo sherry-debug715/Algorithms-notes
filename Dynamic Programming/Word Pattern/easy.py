@@ -28,3 +28,10 @@ class Solution:
 
         return True
 
+from itertools import zip_longest
+class Solution:
+    def wordPattern(self, pattern: str, s: str) -> bool:
+        word_list = s.split()
+        return len(set(pattern)) == len(set(word_list)) == len(set(zip_longest(word_list, pattern)))
+        
+
