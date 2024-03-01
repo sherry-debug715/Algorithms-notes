@@ -15,17 +15,13 @@ class Solution:
         for i in range(len(pattern)):
             cur_word = words[i]                
             cur_pattern = pattern[i]
-            if cur_pattern in memo:
-                check_word = memo[cur_pattern]
-                if check_word != cur_word:
-                    return False 
-            else:
-                if cur_word in used:
-                    return used[cur_word] == cur_pattern
-                memo[cur_pattern] = cur_word
-                used[cur_word] = cur_pattern
+            if cur_pattern in memo and memo[cur_pattern] != cur_word:
+                return False 
+            if cur_word in used and used[cur_word] != cur_pattern:
+                return False
+            memo[cur_pattern] = cur_word
+            used[cur_word] = cur_pattern
             
-
         return True
 
 from itertools import zip_longest
