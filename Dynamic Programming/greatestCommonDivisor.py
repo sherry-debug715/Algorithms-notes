@@ -1,5 +1,5 @@
 # Lintcode problem 845: https://www.lintcode.com/problem/845/?fromId=161&_from=collection
-
+# 欧几里得算法： gcd(a, b) = gcd(b, a mod b), given a > b and a > 0 and b > 0.
 class Solution:
     """
     @param a: the given number
