@@ -7,11 +7,33 @@ class Solution:
     @return: is Match?
     """
     """
-    starIdx, sTmpIdx = 9, 11
-                 s
-    "acaabbaccbbacaabbbb"
-                p
-    "a*?*b*?*a*aa*a*"
+    The tricky part of the problem is how to handle "*"
+    When encounter a "*" in p, use star_pointer to reference the position of the "*" and tempStr_pointer for the current index of s, keep p_pointer at star_pointer + 1. 
+    For example:
+    Input:
+       s
+    "cbbba"
+       p
+    "c?*a"
+
+    starIdx, tempStr_pointer = 2, 2
+    now increment p by one, but not s, to see if the next letter match, this is as if we are treating the "*" as an empty string. 
+       s
+    "cbbba"
+        p
+    "c?*a"
+    since "b" != "a", and "*" could also represent "b". We can check if we are in a "*" situation by checking if starIdx is not -1. 
+    starIdx, tempStr_pointer = 2, 3
+        s
+    "cbbba"
+        p
+    "c?*a"
+    at last, "*" represents "bb"
+    starIdx, tempStr_pointer = 2, 4
+         s
+    "cbbba"
+        p
+    "c?*a"
     """
     def is_match(self, s: str, p: str) -> bool:
         str_pointer, p_pointer = 0, 0
