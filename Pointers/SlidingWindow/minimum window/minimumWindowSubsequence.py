@@ -6,6 +6,23 @@ class Solution:
     @param t: a string
     @return: the minimum substring of S
     """
+    """
+    Since the question requires the substring to be in order with s2, a list structure would be better than an unordered hashmap.
+
+    Suppose we have inputs of s1 = "abcdebdde", s2 = "bde".
+
+    use a list to store indexes of s2[0] in s1.
+    cur_range = [None, 1, None, None, None, 5, None, None, None]
+
+    iterate over s2, starting from index 1.
+
+    We can use a variable start, to always reference the index of the closest s2[0] from cur_range.
+    We also need a new list, new_range, where new_range[idx] is the index of s2[0] of current substring, and idx is the index where range[idx] == s2[j].
+    Replace cur_range with updated new_range, so when j increment, we can use a new empty list to document the index of the next string if it exists, otherwise None.
+    When finishing iterate over s2, if cur_range[idx] is not None, the idx should be the index of s2[-1] in the current substring while cur_range[idx] is the index of s2[0] in the current substring.
+
+    cur_range = [None, None, None, None, 1, None, None, None, 5]
+    """
     # Time: O(m * n) where m is len(t) and n is len(s)
     # Space: O(n)
     def min_window(self, s: str, t: str) -> str:
