@@ -7,6 +7,7 @@ class Solution:
     @param str: the string
     @return: the number of substrings 
     """
+    # 组合公式：[n * (n + 1)] / 2
     def string_count(self, str: str) -> int:
         if not str:
             return 0 

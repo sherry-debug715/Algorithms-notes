@@ -1,12 +1,6 @@
-A = [
-      [1, 2],
-      [5, 3]
-    ]
+source = "adobecodebanc"
+obj = {}
 
-ans = []
-for i in range(len(A)):
-    for j in range(len(A[0])):
-        ans.append((A[i][j], i, j))
-
-ans.sort()
-print(ans)
+for n in source:
+    obj[n] = -1
+print(obj)
