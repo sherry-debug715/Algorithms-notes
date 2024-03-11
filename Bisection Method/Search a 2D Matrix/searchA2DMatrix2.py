@@ -28,7 +28,7 @@ class Solution:
 
     return output
     """
-    # Time O(m + n) where m is the length of row, n is the length of col
+    # Time O(m + n): Because the algorithm moves one step (either right or up) in each iteration and because it can move at most m steps to the right (total number of columns) and n steps up (total number of rows) before it exits the matrix boundaries, the total number of steps (and thus the number of comparisons) is at most m+n. This results in a time complexity of O(m+n).
     # Space O(1)
     def search_matrix(self, matrix: List[List[int]], target: int) -> int:
         if not matrix:
