@@ -20,30 +20,20 @@ class Solution:
         if not B:
             return A
 
-        # find the last number in A that's not 0
-        p1, p2 = 0, len(B) - 1
-        while A[p1] != 0:
-            p1 += 1
+        p1, p2 = m - 1, n - 1
+        p1_end = m + n - 1
 
-        p1 = p1 - 1 if p1 > 0 else 0
-        p1_end = len(A) - 1
-
-        while p2 >= 0 and p1 >= 0 and p1_end >= p1:
-            if A[p1] > B[p2]:
-                A[p1_end] = A[p1]
-                A[p1] = 0
+        while p2 >= 0 and p1_end >= p1:
+            aPointer = A[p1] if p1 >= 0 else float("-inf")
+            if aPointer > B[p2]:
+                A[p1_end] = aPointer
+                aPointer = 0
                 p1 -= 1
                 p1_end -= 1
             else:
                 A[p1_end] = B[p2]
                 p2 -= 1
                 p1_end -= 1
-        if p2 >= 0:
-            for i in range(p2, -1, -1):
-                A[p1_end] = B[p2]
-                p1_end -= 1
-                p2 -= 1
-        
         return A
 
     
