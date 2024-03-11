@@ -17,7 +17,8 @@ class Solution:
     """
     def find_median_sorted_arrays(self, a: List[int], b: List[int]) -> float:
         n, m = len(a), len(b)
-        # need two pointer to take care of when new lists has even number elements
+        # L is used to reference the number that's left to the number which R is referencing
+        # R is used to reference the number that has just been eliminated from the option.
         L, R = 0, 0
         k = (n + m) // 2 
         even = (n + m) % 2 == 0

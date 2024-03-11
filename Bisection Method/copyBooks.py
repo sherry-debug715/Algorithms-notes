@@ -65,3 +65,5 @@ class Solution:
             cur_page += p
 
         return people
+
+
