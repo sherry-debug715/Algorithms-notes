@@ -31,7 +31,7 @@ class Solution:
 
         while stack:
             cur = stack[-1] 
-            # traverse down left branch 
+            # traverse down current branch 
             if not prev or prev.left == cur or prev.right == cur:
                 if cur.left:
                     stack.append(cur.left)
