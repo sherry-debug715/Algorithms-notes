@@ -1,14 +1,16 @@
-# Lintcode problem 104: https://www.lintcode.com/problem/104/
-
-
-# Definition of ListNode
+"""
+Definition of ListNode
 class ListNode(object):
 
     def __init__(self, val, next=None):
         self.val = val
         self.next = next
-# Time: O(NlogK)
-# Space: O(logK) for recursion depth
+"""
+"""
+下面的方法采用自下而上，两两归并的倒三角形方式 
+Time: O(NlogK)
+Space: O(N)
+"""
 class Solution:
     """
     @param lists: a list of ListNode
@@ -18,20 +20,20 @@ class Solution:
         if not lists:
             return None 
         
-        return self.merge_sort(0, len(lists) - 1, lists) 
+        while len(lists) > 1:
+            new_lists = [] 
+            for i in range(0, len(lists), 2):
+                if i + 1 < len(lists):
+                    new_head = self.merge_lists(lists[i], lists[i + 1])
+                else:
+                    new_head = lists[i] 
+                new_lists.append(new_head) 
+            lists = new_lists 
+        
+        return lists[0] 
     
-    def merge_sort(self, start, end, lists):
-        if start >= end:
-            return lists[start]
-
-        mid = (start + end) // 2
-
-        left = self.merge_sort(start, mid, lists)
-        right = self.merge_sort(mid + 1, end, lists) 
-        return self.merge(left, right) 
-    
-    def merge(self, head1, head2):
-        dummy = ListNode(None) 
+    def merge_lists(self, head1, head2):
+        dummy = ListNode(None)
         cur = dummy 
 
         while head1 and head2:
@@ -41,12 +43,12 @@ class Solution:
             else:
                 cur.next = head2 
                 head2 = head2.next 
-            cur = cur.next  
+            cur = cur.next 
         
         if head1:
             cur.next = head1 
         if head2:
             cur.next = head2 
         
-        return dummy.next
-
+        return dummy.next 
+    
