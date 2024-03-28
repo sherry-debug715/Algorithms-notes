@@ -26,7 +26,7 @@ class Solution:
     # given an index, the function should return the index of the max value from
     # subarr arr[:idx] 
     def find_max_index(self, arr, index):
-        max_idx = 0 
+        max_idx = None
         max_val = arr[index] 
 
         for idx, val in enumerate(arr):
@@ -36,8 +36,6 @@ class Solution:
                 max_val = val 
                 max_idx = idx 
 
-        if max_val == arr[index]:
-            return None
         return max_idx
 
 
