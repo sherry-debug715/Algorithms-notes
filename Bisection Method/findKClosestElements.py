@@ -17,7 +17,7 @@ class Solution:
               2. will the input array A be empty 
     """
     """
-    1. Use two pointers to look for position that the value of position: 
+    1. Use two pointers to look for the following position: 
         A[left] < value <= A[right]
     2. Two pointers traverse towards outside, use merge sort style method to 
     compare their value while counting down k
