@@ -12,12 +12,15 @@ class Solution:
         while l1 or l2:
             list1_val = l1.val if l1 else 0
             list2_val = l2.val if l2 else 0
-
+            # new digit 
             two_sum = list1_val + list2_val + carry
-            new_carry = two_sum // 10
+
+            # new carry
+            carry = two_sum // 10
             val = two_sum % 10 
             cur_node.next = ListNode(val)
-            carry = new_carry
+
+            # update pointer
             cur_node = cur_node.next 
             l1 = l1.next if l1 else None
             l2 = l2.next if l2 else None
